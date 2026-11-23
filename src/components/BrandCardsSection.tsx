@@ -220,7 +220,7 @@ export const BrandCardsSection: React.FC = () => {
             </div>
             <button
               onClick={() => goToSearchResults({ selectedBrands: [activeBrand.id] })}
-              className="text-xs uppercase tracking-wider font-bold text-stone-900 hover:text-[#8a1538] flex items-center gap-1.5 transition-colors"
+              className="text-xs uppercase tracking-wider font-bold text-stone-900 hover:text-[#8a1538] flex items-center gap-1.5 transition-colors cursor-pointer"
             >
               <span>View All {activeBrand.propertyCount} Hotels</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -231,7 +231,8 @@ export const BrandCardsSection: React.FC = () => {
             {brandProperties.map((property) => (
               <div
                 key={property.id}
-                className="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
+                onClick={() => goToPropertyDetails(property.id)}
+                className="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group cursor-pointer"
               >
                 {/* Photo & Badges */}
                 <div className="relative h-56 sm:h-60 overflow-hidden bg-stone-100">
@@ -307,7 +308,7 @@ export const BrandCardsSection: React.FC = () => {
           <button
             type="button"
             onClick={() => openBrandsModal(activeBrand.id)}
-            className="inline-flex items-center gap-2 text-xs font-bold text-stone-700 hover:text-[#8a1538] tracking-wider uppercase transition-colors p-2"
+            className="inline-flex items-center gap-2 text-xs font-bold text-stone-700 hover:text-[#8a1538] tracking-wider uppercase transition-colors p-2 cursor-pointer"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#8a1538]" />
             <span>Open Brands Portfolio Modal with All 3 Brands</span>
